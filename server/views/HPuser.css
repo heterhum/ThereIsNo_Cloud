@@ -1,0 +1,294 @@
+:root {  
+    --blue-discord: #7289da;
+    --gray-discord-light:#424549;
+    --gray-discord-lighter:#36393e;
+    --gray-discord-dark:#2c2f33;
+    --gray-discord-darker: #23272a;
+    --gray-discord-darkest: #202225;
+    --white-letter: #ffffff;
+    /*#c7c7c7,#575757*/
+  
+  }
+  
+  html{
+    margin: 0;
+    height: 100%;
+  }
+  
+  body{
+    background-color: var(--gray-discord-lighter);
+    display: grid;
+    grid-template-columns: 256px auto ;
+    grid-template-rows: 8% 92% ;
+    grid-template-areas: 
+      "header header "
+      "sidebar main ";
+      margin: 0;
+      height: 100%;
+          /* google font */   
+          font: var(--dt-title-small-font,500 .875rem/1.25rem "Google Sans"),"Google Sans",Roboto,Arial,sans-serif;
+  }
+  
+  
+  #Header {
+    grid-area: header;
+    display: flex;
+    justify-content: left;
+  }
+  #Main {
+    grid-area: main;
+    background-color: var(--gray-discord-dark);
+    overflow: auto;
+    border-radius: 20px 0 0 0 ;
+    border-left: 1px solid var(--gray-discord-light);
+    border-top: 1px solid var(--gray-discord-light);
+  }
+  #SideBar {
+    grid-area: sidebar;
+    background-color: var(--gray-discord-lighter);
+  
+  }
+  
+  
+  #Logo {
+    background-color: var(--gray-discord-dark);
+    border-bottom: 1px solid var(--gray-discord-light);
+    width: 256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid var(--gray-discord-light);
+    border-radius: 0 0 20px 0;
+    color: var(--blue-discord);
+  }
+  #SearchMain {
+    background-color: var(--gray-discord-lighter);
+    width: auto;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #Connection {
+    background-color: var(--gray-discord-lighter);
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  
+  #MainList{
+    list-style-type: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: var(--white-letter);
+  }
+  .MainListItem{
+    line-height: 48px;
+    background-color: var(--gray-discord-dark);
+    border-bottom: 1.5px solid var(--gray-discord-light);
+    display: flex;
+    justify-content: left;
+  }
+  
+  #MainList :hover {
+    background-color: var(--gray-discord-darker);
+    cursor: default;
+  }
+  #MainList p {
+    outline: none;
+    text-decoration: none;
+  }
+  
+  #MainList li:has(.removebut:hover) {
+    background-color: var(--gray-discord-dark);
+  }
+  #MainList li div:has(.removebut:hover) {
+    background-color: var(--gray-discord-dark);
+  }
+  #MainList button:hover{
+  background-color: var(--gray-discord-darkest);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  }
+  #MainList img:hover{
+    background-color: #00000000;
+  }
+  
+  .ItemImage{
+    min-width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ItemImage img{
+    width: 30px;
+    height: 30px;
+  }
+  
+  .ItemName{
+    width: auto;
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--white-letter);
+    align-items: center;
+  }
+  
+  .ItemName p{
+    margin: auto;
+  }
+  
+  .ItemDate{
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    color: var(--white-letter);
+    align-items: center;
+  }
+  .ItemSize{
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    color:var(--white-letter);
+    align-items: center;
+  }
+  .ItemType{
+    min-width: 80px;
+    display: flex;
+    justify-content: center;
+    color:var(--white-letter);
+    align-items: center;
+  }
+  
+  .ItemRemove{
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .ItemRemove img{
+    width: 25px;
+    height: 25px;
+  }
+  
+  .ItemRemove button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    background-color: #00000000;
+    border: none;
+  }
+  #HautDePage div:hover{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+  }
+  #HautDePage:hover{
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+  }
+  /*-------------------------------------------------------------*/
+  
+  input[type=file] {
+    display: none;
+  }
+  #SideBar{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+  
+  }
+  #Upload{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 48px;
+    background-color: var(--gray-discord-dark);
+    color: var(--white-letter);
+    font-size: 20px;
+    border-radius: 20px;
+  }
+  #Upload:hover{
+    background-color: var(--gray-discord-darker);
+  }
+  
+  /* From Uiverse.io by joe-watson-sbf */ 
+  .search {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: var(--gray-discord-dark);
+    border: none;
+    color: #646464;
+    padding: 0.7rem 1rem;
+    border-radius: 30px;
+    width: 300px;
+    transition: all ease-in-out .5s;
+    margin-right: -2rem;
+  }
+  
+  .search__input:focus {
+    outline: none;
+    background-color: var(--gray-discord-light);
+  }
+  
+  .search__input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: #ccc;
+  }
+  
+  .search__input:focus + .search__button {
+    background-color: var(--gray-discord-light);
+  }
+  
+  .search__button {
+    transition: all ease-in-out .5s;
+    border: none;
+    background-color: var(--gray-discord-dark);
+    margin-top: .1em;
+    border-radius: 0.5em;
+  }
+  
+  .search__button:hover {
+    cursor: pointer;
+  }
+  
+  .search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+  }
+  /*----------------------------------------------------*/
+  
+  .userimg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .userbutton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    background-color: #00000000;
+    border: none;
+    border-radius: 50%;
+  }
+  .userimg:hover{
+    width: 70px;
+    height: 70px;
+    transition: all ease-in-out .5s;
+  }

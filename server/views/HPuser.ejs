@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/HPuser.css"> 
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <script src="/static/HPuser.js" defer></script>
+    <link rel="icon" type="image/png" href="/static/img/cloud-computing.png">
+    <title><%= name %></title>
+</head>
+<body>
+  <header id="Header">
+    <div id="Logo"><h1><%= name %></h1></div>
+    <div id="SearchMain">
+      <div class="search">
+        <input type="text" class="search__input" placeholder="Type your text">
+        <button class="search__button">
+          <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
+              <g>
+                  <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+              </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="Connection"><button class="userbutton"><img class="userimg"src="<%= pp%>"></button></div>
+  </header>
+  <div id="SideBar">
+    <form action="/upload/<%= name %>" method="post" id="uploadForm" enctype="multipart/form-data">
+      <label for="file" id="Upload">Upload</label>
+      <input type="file" name="file" id="file" required />
+    </form>
+  </div>
+  <div id="Main">
+    <ul id="MainList"> 
+      <li class="MainListItem" id="HautDePage">
+        <div class="ItemName">Nom</div>
+        <div class="ItemDate">Date d'ajout</div>
+        <div class="ItemSize">Taille</div>
+        <div class="ItemType">Type</div>
+        <div class="ItemRemove"><img  src="/static/img/poubellebb1.webp"></div>
+      </li>
+      <% if (datafile.length == 0) { %>
+        <li>No files</li>
+      <% } else { %>
+          <% for(let key in datafile) { %>
+            <%var strsize=datafile[key]["size"];
+              if(strsize>=1000000000000){
+                strsize=(strsize/1000000000000).toFixed(2)+" To";
+              } else if (strsize>=1000000000){
+                strsize=(strsize/1000000000).toFixed(2)+" Go";
+              }else if(strsize>=1000000){
+                strsize=(strsize/1000000).toFixed(2)+" Mo";
+              } else if (strsize>=1000){
+                strsize=(strsize/1000).toFixed(2)+" Ko";
+              } else {
+                strsize=strsize+" octets";
+              }
+              const strdate=datafile[key]["date"].slice(0,10)%>
+          <li class="MainListItem" id="<%= key %>" chemin="<%= name %>/file/<%=key + datafile[key]['extention']%>" href="#" ondblclick="DownLoad(this)">
+            <div class="ItemImage"><img  src="/static/img/icone file checkg.webp" ></div>
+            <div class="ItemName"><p><%= datafile[key]["name"] %></p></div>
+            <div class="ItemDate" time='<%= datafile[key]["date"] %>'</div><%= strdate %></div>
+            <div class="ItemSize"><%= strsize %></div>
+            <div class="ItemType"><%= datafile[key]["mime-type"] %></div>
+            <div class="ItemRemove"><button type="button" class="removebut" onclick="FileRemove(this)"><img  src="/static/img/poubellebb1.webp"></button></div>
+          </li>
+      <% }} %>
+    </ul>
+  </div>
+  <script>
+  function DownLoad(element) {
+    const chemin=element.getAttribute("chemin");
+    const link = document.createElement("a");
+    link.href = chemin;
+    link.download = element.querySelector(".ItemName p").textContent; 
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+  </script>
+</body>
+</html>
