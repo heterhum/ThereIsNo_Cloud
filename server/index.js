@@ -12,6 +12,7 @@ const PORT = 3000;
 const path = require('path');
 const bcrypt = require('bcrypt');
 const __dirname = path.resolve();
+const datafile = path.join(__dirname,"data");
 var fs = require('fs');
 import multer from 'multer';
 app.use(cookieParser());
@@ -198,7 +199,7 @@ async function delete_file(client,name,modiffilename){
 function permulter(userID){
   const storage = multer.diskStorage({
     destination: function (req, file, callback) {
-      const pathtemp=path.join(__dirname,"public","Personnal_file",userID)
+      const pathtemp=path.join(__dirname,"data",userID)
       callback(null, pathtemp); 
     },
     filename: function (req, file, callback) {
@@ -249,9 +250,13 @@ app.post("/create", async function (req, res) {
     const username = req.body.createname;
     var data = await see_user_data(client,username).catch(console.error)
   if ( data==null && password!=(null || "") && username!=(null||"") ){
+
     const salt=await bcrypt.genSalt(saltRounds).then();
     const hashpassword= await bcrypt.hash(password, salt);
-    await create_new_user(client,username,hashpassword) 
+    await create_new_user(client,username,hashpassword)
+
+    fs.mkdirSync(datafile+"/"+username);
+
     const usercookie = cookiegenerator(numbergen)
     await modifie_user_data(client,username,"cookie.usercookie",usercookie) 
     res.cookie("usercookie",usercookie)
@@ -284,9 +289,9 @@ app.get('/:uid', async function(req, res,next) {
 app.use('/static',express.static(__dirname+'/server/views'),(req,res,next)=>{next()});
 app.use('/:uid/file', (req, res, next) => { 
   var uid=req.params.uid;
-  var userpath=path.resolve("public","Personnal_file",uid)
-  if (userpath.startsWith(path.resolve("public","Personnal_file"))){
-    express.static(__dirname+'/public/Personnal_file/'+uid)(req,res,next); 
+  var userpath=path.resolve("data",uid)
+  if (userpath.startsWith(path.resolve("data"))){
+    express.static(__dirname+'/data/'+uid)(req,res,next); 
   }
   else{
     res.status(404).send()
@@ -297,17 +302,16 @@ app.use('/:uid/file', (req, res, next) => {
 
 app.post('/upload/:uid', async(req, res) => {
   var uid = req.params.uid;
+  console.log(uid, " try to upload a file")
   var data= await see_user_data(client,uid).catch(console.error); 
 
   if (data!=null && req.cookies.usercookie==data.cookie.usercookie){
 
-    var userpath=path.resolve("public","Personnal_file",uid)
-    if (userpath.startsWith(path.resolve("public","Personnal_file"))){
-      permulter(req.params.uid).single('file')(req, res, function (err) {
+    var userpath=path.resolve("data",uid)
+    if (userpath.startsWith(path.resolve("data"))){
+      permulter(uid).single('file')(req, res, function (err) {
         try {
-          console.log(req.params.uid, " successfully uploaded a file")
-        
-          const name =req.params.uid
+          const name =uid
           const filename = req.file.filename.split('.')[0]
           const date = dategenerator()
           const fakename = req.file.originalname
@@ -315,9 +319,10 @@ app.post('/upload/:uid', async(req, res) => {
           const type = req.file.mimetype
         
           add_user_file(client,name,filename,date,fakename,size,type)
+          console.log(uid, " successfully uploaded a file")
           res.status(204).send()
         } catch (err) {
-          console.log(req.params.uid, " fail to uploaded a file")
+          console.log(uid, " fail to uploaded a file")
           res.status(400).send({ error: err.message });
         }
       });
@@ -336,9 +341,9 @@ io.on ('connection', (socket) => {
     const usercookie=msg.cookie.split("=")[1]
     const name = await see_user_cookie(client,usercookie).catch(console.error)
 
-    const userpath=path.resolve("public","Personnal_file",name,msg.id)
-    if (userpath.startsWith(path.resolve("public","Personnal_file"))){
-    const filepath=path.resolve("public","Personnal_file",name,msg.id+"."+msg.extention)
+    const userpath=path.resolve("data",name,msg.id)
+    if (userpath.startsWith(path.resolve("data"))){
+    const filepath=path.resolve("data",name,msg.id+"."+msg.extention)
     fs.unlinkSync(filepath);
     await delete_file(client,name,msg.id)
     io.to(socket.id).emit("reussie",true);
