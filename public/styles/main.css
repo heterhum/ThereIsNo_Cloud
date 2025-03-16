@@ -1,5 +1,17 @@
+:root {  
+  --blue-discord: #7289da;
+  --gray-discord-light:#424549;
+  --gray-discord-lighter:#36393e;
+  --gray-discord-dark:#2c2f33;
+  --gray-discord-darker: #23272a;
+  --gray-discord-darkest: #202225;
+  --white-letter: #ffffff;
+  /*#c7c7c7,#575757*/
+
+}
+
 body{
-    background-color: rgb(15, 15, 15);
+    background-color: var(--gray-discord-darkest);
   }
   html{
       height: 100%;
@@ -13,9 +25,9 @@ body{
   
   /* From Uiverse.io by bociKond */ 
   .form {
-    --bg-light: #efefef;
-    --bg-dark: #000000;
-    --clr: #000000;
+    --bg-light: var(--gray-discord-light);
+    --bg-dark: var(--blue-discord);
+    --clr: #ffffff;
     --clr-alpha: #9c9c9c60;
     display: flex;
     flex-direction: column;
@@ -96,9 +108,9 @@ body{
       height: 400px;
   }
   #back{
-      background: rgb(255, 255, 255);
+      background: var(--gray-discord-light);
       border-radius: 40px;
-      box-shadow:  7px 7px 50px #D0D1E6,-7px -7px 50px #ffffff;
+      box-shadow:  7px 7px 50px var(--gray-discord-light),-7px -7px 50px var(--gray-discord-lighter);
       opacity: 0.85;
       position: absolute;
       width: 400px;
@@ -108,7 +120,7 @@ body{
   }
   
   .typewriter{
-    color:rgb(34, 54, 44)
+    color:rgb(255, 255, 255)
   }
   
   .typewriter h1:hover::before {
@@ -133,7 +145,7 @@ body{
     justify-content: center;
     gap: 1rem;
     font-weight: 600;
-    color:rgb(0, 0, 0);
+    color:rgb(255, 255, 255);
     margin-top: 10%;
   }
   
@@ -141,11 +153,9 @@ body{
     -webkit-appearance: none;
     width: var(--size);
     height: calc(var(--size) / 2);
-    background-color: #fff;
-    border: 3px solid #222;
+    background-color: #9c9c9c60;
     border-radius: 30px 100px 100px 100px;
     border-style: none;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     outline: none;
     cursor: pointer;
     position: relative;
@@ -160,15 +170,15 @@ body{
     left: 0;
     top: 50%;
     transform: translateY(-50%) scale(0.7);
-    border: 3px solid #222;
+    border: 3px solid var(--gray-discord-darkest);
     border-radius: 30px 100px 100px 100px;
-    background-color: #5DD4C8;
+    background-color: #9c9c9c60;
     box-sizing: border-box;
     transition: all 0.5s;
   }
   
   .checkbox-wrapper-41 input[type="checkbox"]:checked {
-    background-color: #5DD4C8;
+    background-color: var(--blue-discord);
     border-radius: 100px 100px 30px 100px;
   }
   
@@ -180,218 +190,12 @@ body{
   /* Stop */
   
   #checkback{
-    background: rgb(255, 255, 255);
+    background: var(--gray-discord-light);
     border-radius: 40px;
-    box-shadow:  7px 7px 50px #D0D1E6,-7px -7px 50px #ffffff;
+    box-shadow:  7px 7px 50px var(--gray-discord-light),-7px -7px 50px var(--gray-discord-lighter);
     opacity: 0.85;
     position: absolute;
     width: 400px;
     height: 40px;
     z-index: -1;
   }
-  
-  
-  
-  
-  
-  
-  @media only screen and (max-width: 320px) {
-    body{
-      background-color: rgb(15, 15, 15);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    html{
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* google font */   
-        font: var(--dt-title-small-font,500 .875rem/1.25rem "Google Sans"),"Google Sans",Roboto,Arial,sans-serif;
-    }
-    
-    /* From Uiverse.io by bociKond */ 
-    .form {
-      --bg-light: #efefef;
-      --bg-dark: #000000;
-      --clr: #000000;
-      --clr-alpha: #9c9c9c60;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      max-width: 200px;
-    }
-    
-    .form .input-span {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    
-    .form input[type="text"],
-    .form input[type="password"] {
-      border-radius: 0.5rem;
-      padding: 1rem 0.75rem;
-      width: 100%;
-      border: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: var(--clr-alpha);
-      outline: 2px solid var(--bg-dark);
-    }
-    
-    .form input[type="text"]:focus,
-    .form input[type="password"]:focus {
-      outline: 2px solid var(--clr);
-    }
-    
-    .label {
-      align-self: flex-start;
-      color: var(--clr);
-      font-weight: 600;
-    }
-    
-    .form .submit {
-      padding: 1rem 0.75rem;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 3rem;
-      background-color: var(--bg-dark);
-      color: var(--bg-light);
-      border: none;
-      cursor: pointer;
-      transition: all 300ms;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-    
-    .form .submit:hover {
-      background-color: var(--bg-light);
-      color: var(--clr);
-    }
-    
-    .span {
-      text-decoration: none;
-      color: var(--bg-dark);
-    }
-    
-    .span a {
-      color: var(--clr);
-    }
-    /* Stop */
-    
-    #connect1{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 200px;
-        height: 400px;
-    }
-    #back{
-        background: rgb(255, 255, 255);
-        border-radius: 40px;
-        box-shadow:  7px 7px 50px #D0D1E6,-7px -7px 50px #ffffff;
-        opacity: 0.85;
-        position: absolute;
-        width: 100%;
-        height: 400px;
-        z-index: -1;
-        
-    }
-    
-    .typewriter{
-      color:rgb(34, 54, 44)
-    }
-    
-    .typewriter h1:hover::before {
-      content: "ThereIsA Cloud";
-      position: absolute;
-      text-align: center;
-    
-    }
-    
-    .typewriter h1:hover span {
-      opacity: 0;
-      transition-duration: 0.5s;
-    
-    }
-    
-    
-    /* From Uiverse.io by brown-bulldog-12 */
-    .checkbox-wrapper-41 {
-      --size: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-weight: 600;
-      color:rgb(0, 0, 0);
-      margin-top: 10%;
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"] {
-      -webkit-appearance: none;
-      width: 70px;
-      height: calc(var(--size) / 2);
-      background-color: #fff;
-      border: 3px solid #222;
-      border-radius: 30px 100px 100px 100px;
-      border-style: none;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-      outline: none;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.5s;
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]::before {
-      content: "";
-      position: absolute;
-      width: calc(var(--size) / 2);
-      height: calc(var(--size) / 2);
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%) scale(0.7);
-      border: 3px solid #222;
-      border-radius: 30px 100px 100px 100px;
-      background-color: #5DD4C8;
-      box-sizing: border-box;
-      transition: all 0.5s;
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]:checked {
-      background-color: #5DD4C8;
-      border-radius: 100px 100px 30px 100px;
-    }
-    
-    .checkbox-wrapper-41 input[type="checkbox"]:checked::before {
-      left: 50%;
-      background-color: #fff;
-      border-radius: 100px 100px 30px 100px;
-    }
-    /* Stop */
-    
-    #checkback{
-      background: rgb(255, 255, 255);
-      border-radius: 40px;
-      box-shadow:  7px 7px 50px #D0D1E6,-7px -7px 50px #ffffff;
-      opacity: 0.85;
-      position: absolute;
-      width: 100%;
-      height: 40px;
-      z-index: -1;
-    }
-  
-  
-  
-  }
-  
