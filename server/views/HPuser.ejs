@@ -37,7 +37,10 @@
         <div class="ItemDate">Date d'ajout</div>
         <div class="ItemSize">Taille</div>
         <div class="ItemType">Type</div>
-        <div class="ItemRemove"><img  src="/static/img/poubellebb1.webp"></div>
+        <div class="ItemMenu">
+          <button class="MenuBtn" onclick="spawnmenu(this)"></button>
+          <img class="MenuImg" src="https://cdn-icons-png.flaticon.com/512/7066/7066144.png">
+        </div>
       </li>
       <% if (datafile.length == 0) { %>
         <li>No files</li>
@@ -62,9 +65,21 @@
             <div class="ItemDate" time='<%= datafile[key]["date"] %>'</div><%= strdate %></div>
             <div class="ItemSize"><%= strsize %></div>
             <div class="ItemType"><%= datafile[key]["mime-type"] %></div>
-            <div class="ItemRemove"><button type="button" class="removebut" onclick="FileRemove(this)"><img  src="/static/img/poubellebb1.webp"></button></div>
+            <div class="ItemMenu">
+              <button class="MenuBtn" onclick="spawnmenu(this)"></button>
+              <img class="MenuImg" src="https://cdn-icons-png.flaticon.com/512/7066/7066144.png">
+            </div>
+            <!-- <div class="ItemRemove"><button type="button" class="removebut" onclick="FileRemove(this)"><img  src="/static/img/poubellebb1.webp"></button></div> -->
           </li>
       <% }} %>
+    </ul>
+  </div>
+  <div id="menu">
+    <ul>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
+      <li>a</li>
     </ul>
   </div>
   <script>

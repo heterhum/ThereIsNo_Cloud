@@ -6,6 +6,7 @@
     --gray-discord-darker: #23272a;
     --gray-discord-darkest: #202225;
     --white-letter: #ffffff;
+    --blue-discord-blur:#7289da6b;
     /*#c7c7c7,#575757*/
   
   }
@@ -93,22 +94,22 @@
     justify-content: left;
   }
   
-  #MainList :hover {
+  /*#MainList :hover {
     background-color: var(--gray-discord-darker);
     cursor: default;
-  }
+  }*/
   #MainList p {
     outline: none;
     text-decoration: none;
   }
   
-  #MainList li:has(.removebut:hover) {
+  #MainList li:has(.MenuBtn:hover) {
     background-color: var(--gray-discord-dark);
   }
-  #MainList li div:has(.removebut:hover) {
+  #MainList li div:has(.MenuBtn:hover) {
     background-color: var(--gray-discord-dark);
   }
-  #MainList button:hover{
+  /*#MainList button:hover{
   background-color: var(--gray-discord-darkest);
   border-radius: 50%;
   width: 45px;
@@ -116,7 +117,7 @@
   }
   #MainList img:hover{
     background-color: #00000000;
-  }
+  }*/
   
   .ItemImage{
     min-width: 48px;
@@ -165,27 +166,6 @@
     align-items: center;
   }
   
-  .ItemRemove{
-    min-width: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-  
-  }
-  .ItemRemove img{
-    width: 25px;
-    height: 25px;
-  }
-  
-  .ItemRemove button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    appearance: none;
-    background-color: #00000000;
-    border: none;
-  }
   #HautDePage div:hover{
     background-color: rgba(0, 0, 0, 0);
     border-radius: 0;
@@ -292,3 +272,66 @@
     height: 70px;
     transition: all ease-in-out .5s;
   }
+
+  #menu{
+    background-color: white;
+    width: 100px;
+    height: 70px;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    border-radius: 10px;
+  }
+
+  .MenuBtn{
+    border: none;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+
+    border-radius: 50%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .MenuBtn:hover{
+    background-color: var(--blue-discord--blur);
+  }
+  
+  .MenuImg{
+    width: 25px;
+    height: 25px;
+    position: relative;
+  }
+  
+  .ItemMenu{
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* .ItemRemove{
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .ItemRemove img{
+    width: 25px;
+    height: 25px;
+  }
+  
+  .ItemRemove button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    background-color: #00000000;
+    border: none;
+  } */
