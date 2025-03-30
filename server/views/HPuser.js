@@ -30,7 +30,8 @@ window.onload = function() {
       const place = e.getBoundingClientRect();
       var w=place.width;
       var h=place.height;
-      menu.style.left=place.x-w+"px";
+      //fuck it
+      menu.style.left=place.x-320+"px";
       menu.style.top=place.y+h+"px";
       menu.style.display="block";
     };

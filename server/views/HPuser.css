@@ -6,7 +6,7 @@
     --gray-discord-darker: #23272a;
     --gray-discord-darkest: #202225;
     --white-letter: #ffffff;
-    --blue-discord-blur:#7289da6b;
+    --blue-discord-blur:#7289da;
     /*#c7c7c7,#575757*/
   
   }
@@ -94,31 +94,19 @@
     justify-content: left;
   }
   
-  /*#MainList :hover {
-    background-color: var(--gray-discord-darker);
-    cursor: default;
-  }*/
   #MainList p {
     outline: none;
     text-decoration: none;
   }
-  
+
+  #MainList li:hover {
+    background-color: var(--gray-discord-darker);
+    cursor: default;
+  }
   #MainList li:has(.MenuBtn:hover) {
-    background-color: var(--gray-discord-dark);
+    background-color: var(--gray-discord-darke);
   }
-  #MainList li div:has(.MenuBtn:hover) {
-    background-color: var(--gray-discord-dark);
-  }
-  /*#MainList button:hover{
-  background-color: var(--gray-discord-darkest);
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  }
-  #MainList img:hover{
-    background-color: #00000000;
-  }*/
-  
+
   .ItemImage{
     min-width: 48px;
     display: flex;
@@ -166,10 +154,10 @@
     align-items: center;
   }
   
-  #HautDePage div:hover{
+  /*#HautDePage div:hover{
     background-color: rgba(0, 0, 0, 0);
     border-radius: 0;
-  }
+  }*/
   #HautDePage:hover{
     background-color: rgba(0, 0, 0, 0);
     border-radius: 0;
@@ -275,8 +263,8 @@
 
   #menu{
     background-color: white;
-    width: 100px;
-    height: 70px;
+    width: 320px;
+    height: 100px;
     display: none;
     position: absolute;
     z-index: 1000;
@@ -285,19 +273,19 @@
 
   .MenuBtn{
     border: none;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
 
     border-radius: 50%;
-    z-index: 1000;
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0);
   }
   .MenuBtn:hover{
-    background-color: var(--blue-discord--blur);
+    background-color: var(--blue-discord--blur) ;
   }
   
   .MenuImg{
@@ -327,11 +315,5 @@
     height: 25px;
   }
   
-  .ItemRemove button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    appearance: none;
-    background-color: #00000000;
-    border: none;
+
   } */
