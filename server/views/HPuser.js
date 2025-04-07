@@ -31,7 +31,7 @@ window.onload = function() {
       var w=place.width;
       var h=place.height;
       //fuck it
-      menu.style.left=place.x-320+"px";
+      menu.style.left=place.x-200+"px";
       menu.style.top=place.y+h+"px";
       menu.style.display="block";
     };

@@ -261,15 +261,6 @@
     transition: all ease-in-out .5s;
   }
 
-  #menu{
-    background-color: white;
-    width: 320px;
-    height: 100px;
-    display: none;
-    position: absolute;
-    z-index: 1000;
-    border-radius: 10px;
-  }
 
   .MenuBtn{
     border: none;
@@ -299,7 +290,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    align-items: center;
   }
 
   /* .ItemRemove{
@@ -317,3 +307,33 @@
   
 
   } */
+
+  #menu{
+    background-color: white;
+    width: 200px;
+    height: 60px;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+  }
+
+.zMenuItem{
+  display: flex;
+  align-items: center;
+  height: 30px;
+  border-bottom: 1.5px solid var(--gray-discord-light);
+  display: flex;
+  justify-content: left;
+  font-size: large;
+}
+#zMenuList {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  color: var(--gray-discord-darker);
+}
+
+#zMenuList li:hover {
+  background-color: var(--gray-discord-lighter);
+  cursor: default;
+}
