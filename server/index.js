@@ -342,7 +342,7 @@ io.on ('connection', (socket) => {
     const name = await see_user_cookie(client,usercookie).catch(console.error)
 
     const userpath=path.resolve("data",name,msg.id)
-    if (userpath.startsWith(path.resolve("data"))){
+    if (fs.existsSync(path.resolve("data",name,msg.id+"."+msg.extention)) && userpath.startsWith(path.resolve("data"))){
     const filepath=path.resolve("data",name,msg.id+"."+msg.extention)
     fs.unlinkSync(filepath);
     await delete_file(client,name,msg.id)
