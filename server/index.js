@@ -233,8 +233,13 @@ app.post("/login", async function (req, res) {
     const password = req.body.connectpassword;
     const username = req.body.connectusername;
     var data = await see_user_data(client,username).catch(console.error)
+    if (data==null){
+      res.status(204).send()
+      console.log("someone try to connect but fail")
+      return
+    }
     const result =await bcrypt.compare(password, data.password);
-    if ( password!=(null || "") && data!=null && result==true){
+    if ( password!=(null || "") && result==true){
       const usercookie = cookiegenerator(numbergen)
       await modifie_user_data(client,username,"cookie.usercookie",usercookie) 
       res.cookie("usercookie",usercookie)
