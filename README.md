@@ -30,5 +30,5 @@ myDB
 
 # TO DO
 
-create a file name "data"
+create a folder name "data"
 npm install ( install all node modules)
