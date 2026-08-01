@@ -260,7 +260,7 @@ app.post("/create", async function (req, res) {
     const hashpassword= await bcrypt.hash(password, salt);
     await create_new_user(client,username,hashpassword)
 
-    fs.mkdirSync(datafile+"/"+username);
+    fs.mkdirSync(datafile+"/"+username, {recursive: true});
 
     const usercookie = cookiegenerator(numbergen)
     await modifie_user_data(client,username,"cookie.usercookie",usercookie) 
