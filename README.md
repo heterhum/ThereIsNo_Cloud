@@ -6,29 +6,31 @@
 - https://uiverse.io/bociKond/dull-mole-77 (form login)
 - brown-bulldog-12 (checkbox main page)
 - Md Tanvirul Haque icon trash
-- 
 
-# DataBase
-Mongo DB compass
-Mongo DB community server
+# Run locally
 
-myDB
-    users
-            {
-          "_id": {
-            "$oid": "****"
-          },
-          "username": "",
-          "password": "",
-          "pp": "",
-          "cookie": {
-            "date": "",
-            "usercookie": ""
-          },
-          "file": {}
-        }
+## Dependencies
 
-# TO DO
+- Docker Engine
+- Docker Compose
+- Node >= 18
+- npm
 
-create a folder name "data"
-npm install ( install all node modules)
+## Installation instructions
+
+Install npm depencies:
+```bash
+npm install
+```
+
+## Run
+
+Run mongodb database with:
+```bash
+docker compose up -d --build
+```
+
+Then run the web server with:
+```bash
+npm start
+```
